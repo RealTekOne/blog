@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, 
+              :only => [:new, :edit, :create, :update, :delete]
 
   # GET /articles
   # GET /articles.json
@@ -42,7 +44,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-      @articles.category_id = params[:categoty_id]  
+      #@article.category_id = params[:categoty_id]  
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }

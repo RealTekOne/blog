@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
-
+<% content_for :head do %>
+  | <%= @category.name %>
+<% end %>
 <p>
   <strong><%= @category.name %></strong>
 </p>
 <% Article.where(category_id: @category.id).each do |article| %>
-<li> <%= article.title %> </li>
+<li> <%= link_to article.title, article_path(article.id) %> </li>
 <% end %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

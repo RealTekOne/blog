@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% content_for :head do %>
+| <%= @article.title %>
+<% end %>
 <p>
   <strong>Title:</strong>
   <%= @article.title %>

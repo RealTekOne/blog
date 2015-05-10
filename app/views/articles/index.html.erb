@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% content_for :head do %>
+  | Listing Articles
+<% end %>
 <h1>Listing Articles</h1>
 
 <table>
@@ -15,7 +17,7 @@
     <% @articles.each do |article| %>
       <tr>
           <td><%= link_to Category.find(article.category_id).name, 
-    category_path(article.category_id)%></td>  
+        category_path(article.category_id)%></td>  
         <td><%= article.title %></td>
         <td><%= article.text %></td>
         <td><%= link_to 'Show', article %></td>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'welcome/index'
   resources :categories
   resources :articles
   # The priority is based upon order of creation: first created -> highest priority.
@@ -55,4 +57,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+    root 'welcome#index'
+    get "*path", to: redirect('/')
 end
